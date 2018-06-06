@@ -1,8 +1,7 @@
 # air-news-to-archive
 [2018-06]
 To begin with - this is just one shell script .. to be run on environment (like Ubuntu 16.04)
-All it does is - extracts/downloads two mp3 files - morning & evening Sanskrit News bulletin 'published' by All India Radio (AIR) 
-- http://newsonair.nic.in/nsd.asp
+All it does is - extracts/downloads two mp3 files - morning & evening Sanskrit News bulletin 'published' by All India Radio (AIR)  http://newsonair.nic.in/nsd.asp
 Since the file names/locations are 'static' (they overwrite the files daily), the script is straight forward (for now)
 Once files are 'captured' (using curl), they are then uploaded to archive.org (using IA command line interface) http://internetarchive.readthedocs.io/en/latest/cli.html
 (The above only works since IA has been already configured before hand - one time activity)
