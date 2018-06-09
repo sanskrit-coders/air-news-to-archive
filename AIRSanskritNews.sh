@@ -14,7 +14,7 @@ then
 fi
 if test -f $afilnam1 # if mp3 file is successfully downloaded
 then
-ia upload AIR_SanskritNews $afilnam1 --metadata="mediatype:audio" # upload to archive using command line http://internetarchive.readthedocs.io/en/latest/cli.html - ia needs to be configured (once) before this can work
+ia upload AIR_SanskritNews $afilnam1 --metadata="mediatype:audio" >/dev/null 2>&1 # upload to archive using command line http://internetarchive.readthedocs.io/en/latest/cli.html - ia needs to be configured (once) before this can work
 fi
 # now do the same below for second file (evening news)
 afilnam2=$pre"_"$d"_"$f2".mp3"
@@ -25,5 +25,7 @@ then
 fi
 if test -f $afilnam2
 then
-ia upload AIR_SanskritNews $afilnam2 --metadata="mediatype:audio"
+ia upload AIR_SanskritNews $afilnam2 --metadata="mediatype:audio" >/dev/null 2>&1
 fi
+rm $afilnam1 # delete the mp3 file after upload
+rm $afilnam2
