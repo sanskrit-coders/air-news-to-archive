@@ -1,5 +1,5 @@
 # shell script to run once a day (i have tried on Ubuntu 16.04 env.)
-# (ideally this should be scheduled - and hence more error checking needed)
+# (ideally this should be scheduled using crontab -e ... and hence more error checking needed)
 pre='AIR_SanskritNews'
 aext1='56978.mp3' # morning file ... hard-coded (but can also be extracted from http://newsonair.nic.in/nsd.asp RSS/xml)
 aext2='55570.mp3' # evening file
@@ -14,18 +14,17 @@ then
 fi
 if test -f $afilnam1 # if mp3 file is successfully downloaded
 then
-ia upload AIR_SanskritNews $afilnam1 --metadata="mediatype:audio" >/dev/null 2>&1 # upload to archive using command line http://internetarchive.readthedocs.io/en/latest/cli.html - ia needs to be configured (once) before this can work
+/usr/local/bin/ia upload AIR_SanskritNews $afilnam1 --metadata="mediatype:audio" >/dev/null 2>>AIR_San.err # upload to archive using command line http://internetarchive.readthedocs.io/en/latest/cli.html - ia needs to be configured (once) before this can work - error redirected to a file named AIR_San.err
 fi
 # now do the same below for second file (evening news)
 afilnam2=$pre"_"$d"_"$f2".mp3"
-pfilnam2=$pre"_"$d"_"$f2".pdf"
 if test ! -f  $afilnam2
 then
   curl -s -o $afilnam2 $abase$aext2
 fi
 if test -f $afilnam2
 then
-ia upload AIR_SanskritNews $afilnam2 --metadata="mediatype:audio" >/dev/null 2>&1
+/usr/local/bin/ia upload AIR_SanskritNews $afilnam2 --metadata="mediatype:audio" >/dev/null 2>>AIR_San.err
 fi
 rm $afilnam1 # delete the mp3 file after upload
 rm $afilnam2
