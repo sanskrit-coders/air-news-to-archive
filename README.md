@@ -1,4 +1,7 @@
 # air-news-to-archive
+[2018-07]
+UPDATES: It seems AIR folks have changed something at there end ... the hard-coded paths are no more working ... hence, the script has been 'paused' - it is NOT running daily as per earlier schedule - [commented in crontab -e]
+
 [2018-06]
 To begin with - this is just one shell script .. to be run on environment (like Ubuntu 16.04)
 All it does is - extracts/downloads two mp3 files - morning & evening Sanskrit News bulletin 'published' by All India Radio (AIR)  http://newsonair.nic.in/nsd.asp
@@ -18,4 +21,3 @@ few things to ponder?
 - shall we also get date/timestamp of source mp3 files using curl HEAD ?
 - shall we have a website/portal (maybe CMS like wordpress) ... where these can be automatically added as post 
 ... along with script (PDF files are similarly available)?
-- 
